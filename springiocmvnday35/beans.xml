@@ -1,0 +1,18 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+	<beans>
+	
+	<bean name="aObj" class="ai.jobiak.source.A"></bean>
+	
+	<bean name="b" class="ai.jobiak.usesource.B">
+	<property name="a" ref="aObj"></property>
+	</bean>
+	
+	<bean name="aImpl" class="ai.jobiak.ifaces.AImpl"></bean>
+	<bean name="cImpl" class="ai.jobiak.ifaces.CImpl"></bean>
+	<bean name="bDigital" class="ai.jobiak.ifaces.BDigital">
+	
+			<property name="printable" ref="aImpl"></property>
+			<constructor-arg ref="cImpl" ></constructor-arg>
+	</bean>
+	</beans>
